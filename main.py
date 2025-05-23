@@ -64,6 +64,9 @@ class BrainScan(ft.Column):
             self.page.open(self.empty_alert)
             return
 
+        if not os.path.exists(self.save_directory):
+            os.makedirs(self.save_directory)
+
         images = glob.glob(self.save_directory + "/*")
         for img in images:
             os.remove(img)
